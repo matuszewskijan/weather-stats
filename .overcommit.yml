@@ -1,0 +1,39 @@
+PreCommit:
+  ALL:
+    requires_files: true
+    exclude: &default_excludes
+      - 'node_modules/**/*'
+      - 'vendor/**/*'
+      - 'db/**/*'
+      - 'public/**/*'
+      - 'vendor/**/*'
+
+  RuboCop:
+    enabled: true
+    on_warn: fail
+    flags: ['-c', '.rubocop.yml']
+
+  TrailingWhitespace:
+    enabled: true
+    exclude:
+      - 'vendor/**/*'
+
+  YamlSyntax:
+    enabled: true
+
+  MergeConflicts:
+    enabled: true
+
+  Brakeman:
+    command: ['brakeman']
+    enabled: true
+
+  LineEndings:
+    enabled: true
+    exclude:
+      - 'public/**/*'
+      - 'spec/fixtures/*.pdf'
+      - 'app/javascript/images/*'
+      - 'app/views/icons/splitit.png'
+      - 'app/javascript/.DS_Store'
+      - 'app/javascript/packs/.DS_Store'
